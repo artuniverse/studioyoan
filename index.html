@@ -36,7 +36,6 @@
       min-height: 100svh;
       display: flex;
       justify-content: center;
-      transform: translateY(94px);
     }
 
     .page {
@@ -171,26 +170,26 @@
     }
 
     .glass-button .brand-thin {
-      font-weight: 300;
+      font-weight: 200;
     }
 
     .glass-button:active {
       transform: scale(0.985);
-      background: transparent;
+      background: rgba(255,255,255,0.12);
       box-shadow: none;
     }
 
     @media (hover: hover) and (pointer: fine) {
       .glass-button:hover {
         transform: translateY(-1px);
-        background: transparent;
+        background: rgba(255,255,255,0.12);
         box-shadow: none;
       }
     }
 
     @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
       .glass-button {
-        background: transparent;
+        background: rgba(255,255,255,0.10);
       }
     }
 
@@ -204,7 +203,6 @@
       main {
         justify-content: flex-start;
         padding-top: max(40px, env(safe-area-inset-top));
-        transform: translateY(94px);
       }
 
       .brand {
