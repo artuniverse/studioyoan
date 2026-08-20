@@ -62,7 +62,7 @@
           rgba(255,255,255,0.06),
           rgba(255,255,255,0.02)
         ),
-        url("bg.jpg") center top / cover no-repeat;
+        url("bg.jpg") center -145px / cover no-repeat;
     }
 
     /* Very subtle milk-glass veil */
@@ -191,6 +191,12 @@
     @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
       .glass-button {
         background: transparent;
+      }
+    }
+
+    @media (min-width: 700px) {
+      .page::before {
+        background-position: center -90px;
       }
     }
 
