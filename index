@@ -88,35 +88,39 @@
     }
 
     .brand {
-      margin: 0 0 clamp(46px, 7vh, 72px);
+      margin: 0 0 clamp(42px, 6vh, 64px);
+      display: flex;
+      justify-content: center;
     }
 
     .brand img {
       display: block;
-      width: min(74%, 460px);
-      max-height: 118px;
+      width: min(59.2%, 368px);
+      max-height: 94px;
       object-fit: contain;
-      object-position: left center;
+      object-position: center;
       filter: none;
     }
 
     .links {
       display: grid;
-      gap: 14px;
+      gap: 12px;
+      width: 90%;
+      margin: 132px auto 0;
     }
 
     .glass-button {
       position: relative;
       display: grid;
       place-items: center;
-      min-height: 78px;
-      padding: 18px 24px;
-      border-radius: 24px;
+      min-height: 66px;
+      padding: 14px 20px;
+      border-radius: 21px;
 
       color: var(--text);
       text-decoration: none;
       text-align: center;
-      font-size: clamp(17px, 4.3vw, 22px);
+      font-size: clamp(16px, 3.9vw, 20px);
       font-weight: 400;
       letter-spacing: -0.025em;
 
@@ -124,19 +128,19 @@
       background:
         linear-gradient(
           135deg,
-          rgba(255,255,255,0.34) 0%,
-          rgba(255,255,255,0.13) 44%,
-          rgba(255,255,255,0.22) 100%
+          rgba(255,255,255,0.135) 0%,
+          rgba(255,255,255,0.05) 44%,
+          rgba(255,255,255,0.09) 100%
         );
-      border: 1px solid var(--glass-border);
+      border: 1px solid rgba(255,255,255,0.42);
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.78),
-        inset 0 -1px 0 rgba(255,255,255,0.15),
-        0 8px 22px rgba(20, 20, 20, 0.055),
-        0 1px 2px rgba(20, 20, 20, 0.035);
+        inset 0 1px 0 rgba(255,255,255,0.50),
+        inset 0 -1px 0 rgba(255,255,255,0.08),
+        0 8px 22px rgba(20, 20, 20, 0.04),
+        0 1px 2px rgba(20, 20, 20, 0.025);
 
-      -webkit-backdrop-filter: blur(18px) saturate(145%);
-      backdrop-filter: blur(18px) saturate(145%);
+      -webkit-backdrop-filter: blur(14px) saturate(125%);
+      backdrop-filter: blur(14px) saturate(125%);
       overflow: hidden;
       transform: translateZ(0);
       transition:
@@ -145,32 +149,52 @@
         box-shadow 160ms ease;
     }
 
-    /* Fine dark edge: gives the glass shape definition on white areas */
+    /* crisp glass rim + top shine */
     .glass-button::before {
       content: "";
       position: absolute;
       inset: 0;
       border-radius: inherit;
-      box-shadow: inset 0 0 0 0.5px var(--glass-border-dark);
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,0.68) 0%,
+          rgba(255,255,255,0.22) 10%,
+          rgba(255,255,255,0.05) 22%,
+          rgba(255,255,255,0.00) 34%
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.18) 0%,
+          rgba(255,255,255,0.03) 20%,
+          rgba(255,255,255,0.03) 80%,
+          rgba(255,255,255,0.16) 100%
+        );
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.24),
+        inset 0 0 0 1.5px rgba(0,0,0,0.03);
       pointer-events: none;
     }
 
-    /* Soft specular highlight */
+    /* moving-looking glossy blob / reflection */
     .glass-button::after {
       content: "";
       position: absolute;
-      width: 72%;
-      height: 180%;
-      top: -122%;
-      left: -14%;
+      width: 64%;
+      height: 230%;
+      top: -165%;
+      left: -8%;
       border-radius: 50%;
       background: radial-gradient(
         ellipse at center,
-        rgba(255,255,255,0.38) 0%,
-        rgba(255,255,255,0.12) 38%,
-        rgba(255,255,255,0) 72%
+        rgba(255,255,255,0.86) 0%,
+        rgba(255,255,255,0.40) 20%,
+        rgba(255,255,255,0.10) 38%,
+        rgba(255,255,255,0) 66%
       );
-      transform: rotate(-8deg);
+      filter: blur(8px);
+      opacity: 0.95;
+      transform: rotate(-10deg);
       pointer-events: none;
     }
 
@@ -179,17 +203,30 @@
       z-index: 1;
     }
 
+    .glass-button .brand-thin {
+      font-weight: 300;
+    }
+
     .glass-button:active {
       transform: scale(0.985);
       background:
         linear-gradient(
-          135deg,
-          rgba(255,255,255,0.42),
-          rgba(255,255,255,0.18)
+          180deg,
+          rgba(255,255,255,0.24) 0%,
+          rgba(255,255,255,0.10) 32%,
+          rgba(255,255,255,0.05) 58%,
+          rgba(255,255,255,0.11) 100%
+        ),
+        linear-gradient(
+          100deg,
+          rgba(255,255,255,0.20) 0%,
+          rgba(255,255,255,0.05) 28%,
+          rgba(255,255,255,0.03) 72%,
+          rgba(255,255,255,0.16) 100%
         );
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.82),
-        0 4px 12px rgba(20,20,20,0.04);
+        inset 0 1px 0 rgba(255,255,255,0.60),
+        0 8px 18px rgba(20,20,20,0.04);
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -197,20 +234,29 @@
         transform: translateY(-1px);
         background:
           linear-gradient(
-            135deg,
-            rgba(255,255,255,0.42) 0%,
-            rgba(255,255,255,0.16) 50%,
-            rgba(255,255,255,0.25) 100%
+            180deg,
+            rgba(255,255,255,0.24) 0%,
+            rgba(255,255,255,0.10) 32%,
+            rgba(255,255,255,0.05) 58%,
+            rgba(255,255,255,0.12) 100%
+          ),
+          linear-gradient(
+            100deg,
+            rgba(255,255,255,0.22) 0%,
+            rgba(255,255,255,0.05) 28%,
+            rgba(255,255,255,0.03) 72%,
+            rgba(255,255,255,0.16) 100%
           );
         box-shadow:
-          inset 0 1px 0 rgba(255,255,255,0.86),
-          0 12px 28px rgba(20,20,20,0.065);
+          inset 0 1px 0 rgba(255,255,255,0.66),
+          inset 0 0 0 1px rgba(255,255,255,0.12),
+          0 16px 34px rgba(20,20,20,0.07);
       }
     }
 
     @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
       .glass-button {
-        background: rgba(255, 255, 255, 0.72);
+        background: rgba(255, 255, 255, 0.24);
       }
     }
 
@@ -225,11 +271,11 @@
       }
 
       .glass-button {
-        min-height: 68px;
+        min-height: 60px;
       }
 
       .links {
-        gap: 11px;
+        gap: 10px;
       }
     }
   </style>
@@ -260,12 +306,12 @@
 
         <a class="glass-button"
            href="http://www.interviewm.com/news/articleView.html?idxno=5850">
-          <span>기사 읽기 1 · 크루크루(CREWCREW)</span>
+          <span>기사 읽기 1 · <span class="brand-thin">크루크루(CREWCREW)</span></span>
         </a>
 
         <a class="glass-button"
            href="http://www.interviewm.com/news/articleView.html?idxno=5857">
-          <span>기사 읽기 2 · 패이보릭(FABORIC)</span>
+          <span>기사 읽기 2 · <span class="brand-thin">패이보릭(FABORIC)</span></span>
         </a>
       </nav>
     </main>
